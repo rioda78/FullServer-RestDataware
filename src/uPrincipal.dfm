@@ -4,8 +4,8 @@ object fPrincipal: TfPrincipal
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'REST Dataware CORE - Full Server'
-  ClientHeight = 722
-  ClientWidth = 638
+  ClientHeight = 714
+  ClientWidth = 636
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -39,8 +39,8 @@ object fPrincipal: TfPrincipal
   object PageControl1: TPageControl
     Left = 0
     Top = 58
-    Width = 638
-    Height = 627
+    Width = 636
+    Height = 619
     ActivePage = tsConfigs
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
@@ -55,15 +55,15 @@ object fPrincipal: TfPrincipal
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 630
-        Height = 595
+        Width = 628
+        Height = 587
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
         DesignSize = (
-          630
-          595)
+          628
+          587)
         object Label1: TLabel
           Left = 190
           Top = 32
@@ -170,15 +170,15 @@ object fPrincipal: TfPrincipal
         end
         object Label6: TLabel
           Left = 0
-          Top = 578
-          Width = 630
+          Top = 570
+          Width = 628
           Height = 17
           Align = alBottom
           Alignment = taCenter
           AutoSize = False
           Caption = 
-            'OBS.: A porta do servidor RestDW deve estar adicionada nas regra' +
-            's do FIREWALL'
+            'CATATAN: Port server RestDW harus ditambahkan ke aturan FIREWALL' +
+            ' '
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clMaroon
           Font.Height = -13
@@ -190,7 +190,7 @@ object fPrincipal: TfPrincipal
         end
         object Label15: TLabel
           Left = 7
-          Top = 406
+          Top = 398
           Width = 87
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -205,7 +205,7 @@ object fPrincipal: TfPrincipal
         end
         object Label16: TLabel
           Left = 458
-          Top = 406
+          Top = 398
           Width = 124
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -220,7 +220,7 @@ object fPrincipal: TfPrincipal
         end
         object Label17: TLabel
           Left = 7
-          Top = 452
+          Top = 444
           Width = 50
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -236,11 +236,11 @@ object fPrincipal: TfPrincipal
         object labConexao: TLabel
           Left = 0
           Top = 0
-          Width = 630
+          Width = 628
           Height = 23
           Align = alTop
           AutoSize = False
-          Caption = ' .: CONFIGURA'#199#213'ES DO SERVIDOR'
+          Caption = 'Konfigurasi Servis'
           Color = clGrayText
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
@@ -272,7 +272,7 @@ object fPrincipal: TfPrincipal
           Width = 614
           Height = 23
           AutoSize = False
-          Caption = ' .: CONFIGURA'#199#213'ES DO BANCO DE DADOS'
+          Caption = 'Konfigurasi Database'
           Color = clGrayText
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
@@ -290,7 +290,7 @@ object fPrincipal: TfPrincipal
           Width = 614
           Height = 23
           AutoSize = False
-          Caption = ' .: CONFIGURA'#199#213'ES DE SSL'
+          Caption = 'Konfigurasi SSL'
           Color = clGrayText
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
@@ -309,7 +309,7 @@ object fPrincipal: TfPrincipal
           Height = 23
           Alignment = taRightJustify
           AutoSize = False
-          Caption = 'Vers'#227'o'
+          Caption = 'Versi'
           Color = clGrayText
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
@@ -349,7 +349,7 @@ object fPrincipal: TfPrincipal
         end
         object Label10: TLabel
           Left = 7
-          Top = 498
+          Top = 490
           Width = 81
           Height = 17
           Anchors = [akLeft, akBottom]
@@ -376,7 +376,7 @@ object fPrincipal: TfPrincipal
           ParentFont = False
         end
         object Panel4: TPanel
-          Left = 674
+          Left = 672
           Top = 10
           Width = 59
           Height = 37
@@ -931,7 +931,7 @@ object fPrincipal: TfPrincipal
         end
         object ePrivKeyFile: TEdit
           Left = 7
-          Top = 425
+          Top = 417
           Width = 440
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -945,7 +945,7 @@ object fPrincipal: TfPrincipal
         end
         object eCertFile: TEdit
           Left = 7
-          Top = 471
+          Top = 463
           Width = 600
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -959,7 +959,7 @@ object fPrincipal: TfPrincipal
         end
         object ePrivKeyPass: TMaskEdit
           Left = 459
-          Top = 425
+          Top = 417
           Width = 148
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -1033,7 +1033,7 @@ object fPrincipal: TfPrincipal
         end
         object eHostCertFile: TEdit
           Left = 7
-          Top = 517
+          Top = 509
           Width = 600
           Height = 25
           Anchors = [akLeft, akBottom]
@@ -1286,18 +1286,18 @@ object fPrincipal: TfPrincipal
       object Label19: TLabel
         Left = 7
         Top = 262
-        Width = 60
+        Width = 57
         Height = 17
-        Caption = 'Respostas'
+        Caption = 'Response'
         Color = clBtnFace
         ParentColor = False
       end
       object Label18: TLabel
         Left = 7
         Top = 10
-        Width = 69
+        Width = 65
         Height = 17
-        Caption = 'Requisi'#231#245'es'
+        Caption = 'Permintaan'
         Color = clBtnFace
         ParentColor = False
       end
@@ -1334,7 +1334,7 @@ object fPrincipal: TfPrincipal
   object paTopo: TPanel
     Left = 0
     Top = 0
-    Width = 638
+    Width = 636
     Height = 58
     Align = alTop
     BevelOuter = bvNone
@@ -1751,33 +1751,32 @@ object fPrincipal: TfPrincipal
   end
   object Panel2: TPanel
     Left = 0
-    Top = 685
-    Width = 638
+    Top = 677
+    Width = 636
     Height = 37
     Align = alBottom
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 2
     DesignSize = (
-      638
+      636
       37)
     object lSeguro: TLabel
       Left = 4
       Top = 12
-      Width = 80
+      Width = 82
       Height = 17
       Anchors = []
-      Caption = 'Seguro : N'#227'o'
+      Caption = 'Aman : Tidak'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clMaroon
       Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
-      ExplicitLeft = 9
     end
     object ButtonStart: TButton
-      Left = 395
+      Left = 394
       Top = 6
       Width = 100
       Height = 25
@@ -1794,7 +1793,7 @@ object fPrincipal: TfPrincipal
       OnClick = ButtonStartClick
     end
     object ButtonStop: TButton
-      Left = 500
+      Left = 498
       Top = 6
       Width = 100
       Height = 25
@@ -1811,7 +1810,7 @@ object fPrincipal: TfPrincipal
       OnClick = ButtonStopClick
     end
     object cbPoolerState: TCheckBox
-      Left = 174
+      Left = 173
       Top = 12
       Width = 115
       Height = 17
@@ -1837,14 +1836,14 @@ object fPrincipal: TfPrincipal
     Left = 210
     Top = 168
     object RestaurarAplicao1: TMenuItem
-      Caption = 'Restaurar Aplica'#231#227'o'
+      Caption = 'Restore App'
       OnClick = RestaurarAplicao1Click
     end
     object N5: TMenuItem
       Caption = '-'
     end
     object SairdaAplicao1: TMenuItem
-      Caption = 'Sair da Aplica'#231#227'o'
+      Caption = 'Keluar Aplikasi'
       OnClick = SairdaAplicao1Click
     end
   end

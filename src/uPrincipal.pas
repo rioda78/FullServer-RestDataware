@@ -224,9 +224,9 @@ End;
 procedure TfPrincipal.ChangeStatusWindow;
 Begin
   If Self.Visible Then
-    SairdaAplicao1.Caption := 'Minimizar para a bandeja'
+    SairdaAplicao1.Caption := 'Minimalkan jendela'
   Else
-    SairdaAplicao1.Caption := 'Sair da Aplicação';
+    SairdaAplicao1.Caption := 'Keluar Aplikasi';
   Application.ProcessMessages;
 End;
 
@@ -252,15 +252,15 @@ Begin
   Ini                     := TIniFile.Create(FCfgName);
   Try
    CbAdaptadores.ItemIndex := ServerIpIndex(CbAdaptadores.Items,
-                                            Ini.ReadString('BancoDados', 'Servidor', '127.0.0.1'));
-   EdBD.Text               := Ini.ReadString('BancoDados', 'BD',         'EMPLOYEE.FDB');
-   EdPasta.Text            := Ini.ReadString('BancoDados', 'Pasta',      ExtractFilePath(ParamSTR(0)) + '..\');
-   EdPortaBD.Text          := Ini.ReadString('BancoDados', 'PortaBD',    '3050');
-   EdUserNameBD.Text       := Ini.ReadString('BancoDados', 'UsuarioBD',  'SYSDBA');
-   EdPasswordBD.Text       := Ini.ReadString('BancoDados', 'SenhaBD',    'masterkey');
-   EdPortaDW.Text          := Ini.ReadString('BancoDados', 'PortaDW',    '8082');
-   EdUserNameDW.Text       := Ini.ReadString('BancoDados', 'UsuarioDW',  'testserver');
-   EdPasswordDW.Text       := Ini.ReadString('BancoDados', 'SenhaDW',    'testserver');
+                                            Ini.ReadString('SetingDatabase', 'Server', '127.0.0.1'));
+   EdBD.Text               := Ini.ReadString('SetingDatabase', 'Database',         'EMPLOYEE.FDB');
+   EdPasta.Text            := Ini.ReadString('SetingDatabase', 'Alamat',      ExtractFilePath(ParamSTR(0)) + '..\');
+   EdPortaBD.Text          := Ini.ReadString('SetingDatabase', 'PortDb',    '3050');
+   EdUserNameBD.Text       := Ini.ReadString('SetingDatabase', 'UsernameDb',  'SYSDBA');
+   EdPasswordBD.Text       := Ini.ReadString('SetingDatabase', 'PasswordDb',    'masterkey');
+   EdPortaDW.Text          := Ini.ReadString('SetingDatabase', 'PortDw',    '8082');
+   EdUserNameDW.Text       := Ini.ReadString('SetingDatabase', 'UsernameDW',  'testserver');
+   EdPasswordDW.Text       := Ini.ReadString('SetingDatabase', 'PasswordDW',    'testserver');
    Case CbDriver.ItemIndex of
     0: // FireBird
       Begin
@@ -388,33 +388,33 @@ Begin
   Ini := TIniFile.Create(FCfgName);
   If CkUsaURL.Checked Then
   Begin
-    Ini.WriteString('BancoDados', 'Servidor', EdURL.Text);
+    Ini.WriteString('SetingDatabase', 'Server', EdURL.Text);
   End
   Else
   Begin
-    Ini.WriteString('BancoDados', 'Servidor', CbAdaptadores.Text);
+    Ini.WriteString('SetingDatabase', 'Server', CbAdaptadores.Text);
     cbAdaptadores.onChange(cbAdaptadores);
   End;
-  Ini.WriteInteger('BancoDados', 'DRIVER', cbDriver.ItemIndex);
+  Ini.WriteInteger('SetingDatabase', 'DRIVER', cbDriver.ItemIndex);
   If ckUsaURL.Checked Then
-   Ini.WriteInteger('BancoDados', 'USEDNS', 1)
+   Ini.WriteInteger('SetingDatabase', 'USEDNS', 1)
   Else
-   Ini.WriteInteger('BancoDados', 'USEDNS', 0);
+   Ini.WriteInteger('SetingDatabase', 'USEDNS', 0);
   If cbUpdateLog.Checked Then
    Ini.WriteInteger('Configs', 'UPDLOG', 1)
   Else
    Ini.WriteInteger('Configs', 'UPDLOG', 0);
-  Ini.WriteString('BancoDados', 'BD', EdBD.Text);
-  Ini.WriteString('BancoDados', 'Pasta', EdPasta.Text);
-  Ini.WriteString('BancoDados', 'PortaBD', EdPortaBD.Text);
-  Ini.WriteString('BancoDados', 'PortaDW', EdPortaDW.Text);
-  Ini.WriteString('BancoDados', 'UsuarioBD', EdUserNameBD.Text);
-  Ini.WriteString('BancoDados', 'SenhaBD', EdPasswordBD.Text);
-  Ini.WriteString('BancoDados', 'UsuarioDW', EdUserNameDW.Text);
-  Ini.WriteString('BancoDados', 'SenhaDW', EdPasswordDW.Text);
-  Ini.WriteString('BancoDados', 'DataSource', EdDataSource.Text);    // ODBC
-  Ini.WriteInteger('BancoDados', 'OsAuthent', cbOsAuthent.Checked.ToInteger);
-  Ini.WriteString('BancoDados', 'MonitorBy', EdMonitor.Text);
+  Ini.WriteString('SetingDatabase', 'Database', EdBD.Text);
+  Ini.WriteString('SetingDatabase', 'Alamat', EdPasta.Text);
+  Ini.WriteString('SetingDatabase', 'PortDb', EdPortaBD.Text);
+  Ini.WriteString('SetingDatabase', 'PortDw', EdPortaDW.Text);
+  Ini.WriteString('SetingDatabase', 'UsernameDb', EdUserNameBD.Text);
+  Ini.WriteString('SetingDatabase', 'PaswwordDb', EdPasswordBD.Text);
+  Ini.WriteString('SetingDatabase', 'UsernameDW', EdUserNameDW.Text);
+  Ini.WriteString('SetingDatabase', 'PasswordDW', EdPasswordDW.Text);
+  Ini.WriteString('SetingDatabase', 'DataSource', EdDataSource.Text);    // ODBC
+  Ini.WriteInteger('SetingDatabase', 'OsAuthent', cbOsAuthent.Checked.ToInteger);
+  Ini.WriteString('SetingDatabase', 'MonitorBy', EdMonitor.Text);
   Ini.WriteString('SSL', 'PKF', EPrivKeyFile.Text);
   Ini.WriteString('SSL', 'PKP', EPrivKeyPass.Text);
   Ini.WriteString('SSL', 'CF', ECertFile.Text);
@@ -456,7 +456,7 @@ Begin
   Begin
     CanClose := Not Self.Visible;
     If CanClose Then
-      CanClose := Application.MessageBox('Você deseja realmente sair do programa ?', 'Pergunta ?', Mb_IconQuestion + Mb_YesNo) = MrYes
+      CanClose := Application.MessageBox('Apakah yakin akan keluar ?', 'Pergunta ?', Mb_IconQuestion + Mb_YesNo) = MrYes
     Else
       HideApplication;
   End;
@@ -496,29 +496,29 @@ Begin
     CbAdaptadores.ItemIndex := VTag;
   End;
  Ini                     := TIniFile.Create(FCfgName);
- cbDriver.ItemIndex      := Ini.ReadInteger('BancoDados', 'DRIVER', 0);
- ckUsaURL.Checked        := Ini.ReadInteger('BancoDados', 'USEDNS', 0) = 1;
- If ServerIpIndex(CbAdaptadores.Items, Ini.ReadString('BancoDados', 'Servidor', '')) > -1 Then
-  CbAdaptadores.ItemIndex := ServerIpIndex(CbAdaptadores.Items, Ini.ReadString('BancoDados', 'Servidor', ''))
+ cbDriver.ItemIndex      := Ini.ReadInteger('SetingDatabase', 'DRIVER', 0);
+ ckUsaURL.Checked        := Ini.ReadInteger('SetingDatabase', 'USEDNS', 0) = 1;
+ If ServerIpIndex(CbAdaptadores.Items, Ini.ReadString('SetingDatabase', 'Server', '')) > -1 Then
+  CbAdaptadores.ItemIndex := ServerIpIndex(CbAdaptadores.Items, Ini.ReadString('SetingDatabase', 'Server', ''))
  Else
   Begin
-   If Ini.ReadString('BancoDados', 'Servidor', '') <> '' Then
+   If Ini.ReadString('SetingDatabase', 'Server', '') <> '' Then
     Begin
-     cbAdaptadores.Items.Add(Ini.ReadString('BancoDados', 'Servidor', ''));
+     cbAdaptadores.Items.Add(Ini.ReadString('SetingDatabase', 'Server', ''));
      cbAdaptadores.ItemIndex := cbAdaptadores.Items.Count -1;
     End;
   End;
- EdBD.Text                := Ini.ReadString('BancoDados',  'BD', 'EMPLOYEE.FDB');
- EdPasta.Text             := Ini.ReadString('BancoDados',  'Pasta', ExtractFilePath(ParamSTR(0)) + '..\');
- EdPortaBD.Text           := Ini.ReadString('BancoDados',  'PortaBD', '3050');
- EdPortaDW.Text           := Ini.ReadString('BancoDados',  'PortaDW', '8082');
- EdUserNameBD.Text        := Ini.ReadString('BancoDados',  'UsuarioBD', 'SYSDBA');
- EdPasswordBD.Text        := Ini.ReadString('BancoDados',  'SenhaBD', 'masterkey');
- EdUserNameDW.Text        := Ini.ReadString('BancoDados',  'UsuarioDW', 'testserver');
- EdPasswordDW.Text        := Ini.ReadString('BancoDados',  'SenhaDW', 'testserver');
- EdMonitor.Text           := Ini.ReadString('BancoDados',  'MonitorBy', 'Remote');  // ICO Menezes
- EdDataSource.Text        := Ini.ReadString('BancoDados',  'DataSource', 'SQL');
- cbOsAuthent.Checked      := Ini.ReadInteger('BancoDados', 'OsAuthent', 0) = 1;
+ EdBD.Text                := Ini.ReadString('SetingDatabase',  'Database', 'EMPLOYEE.FDB');
+ EdPasta.Text             := Ini.ReadString('SetingDatabase',  'Alamat', ExtractFilePath(ParamSTR(0)) + '..\');
+ EdPortaBD.Text           := Ini.ReadString('SetingDatabase',  'PortDb', '3050');
+ EdPortaDW.Text           := Ini.ReadString('SetingDatabase',  'PortDw', '8082');
+ EdUserNameBD.Text        := Ini.ReadString('SetingDatabase',  'UsernameDb', 'SYSDBA');
+ EdPasswordBD.Text        := Ini.ReadString('SetingDatabase',  'PaswwordDb', 'masterkey');
+ EdUserNameDW.Text        := Ini.ReadString('SetingDatabase',  'UsernameDW', 'testserver');
+ EdPasswordDW.Text        := Ini.ReadString('SetingDatabase',  'PasswordDW', 'testserver');
+ EdMonitor.Text           := Ini.ReadString('SetingDatabase',  'MonitorBy', 'Remote');  // ICO Menezes
+ EdDataSource.Text        := Ini.ReadString('SetingDatabase',  'DataSource', 'SQL');
+ cbOsAuthent.Checked      := Ini.ReadInteger('SetingDatabase', 'OsAuthent', 0) = 1;
  cbUpdateLog.Checked      := Ini.ReadInteger('Configs',    'UPDLOG', 1) = 1;
  EPrivKeyFile.Text        := Ini.ReadString('SSL',         'PKF', '');
  EPrivKeyPass.Text        := Ini.ReadString('SSL',         'PKP', '');
@@ -578,6 +578,7 @@ Begin
 //    Else
 //     RESTDWIdServicePooler1.AuthenticationOptions.AuthorizationOption := rdwAONone;
 //   End;
+
    RESTDWIdServicePooler1.ServicePort           := StrToInt(EdPortaDW.Text);
    RESTDWIdServicePooler1.SSLPrivateKeyFile     := EPrivKeyFile.Text;
    RESTDWIdServicePooler1.SSLPrivateKeyPassword := EPrivKeyPass.Text;
@@ -594,12 +595,12 @@ Begin
  If RESTDWIdServicePooler1.SSLMode <> sslmUnassigned Then
   Begin
    LSeguro.Font.Color := ClBlue;
-   LSeguro.Caption    := 'Seguro : Sim';
+   LSeguro.Caption    := 'Aman : Ya';
   End
  Else
   Begin
    LSeguro.Font.Color := ClRed;
-   LSeguro.Caption    := 'Seguro : Não';
+   LSeguro.Caption    := 'Aman : Tidak';
   End;
 End;
 
